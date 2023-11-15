@@ -2,6 +2,13 @@ import React from 'react';
 import {StatusBar, StyleSheet, Text, View, Image} from 'react-native';
 
 export const Post = ({title, imageUrl, price}: any) => {
+	const trimTitle = (str: string) => {
+		if (str.length >= 50) {
+			return str.substring(0, 50) + ' ...';
+		} else {
+			return str;
+		}
+	};
 	return (
 		<View>
 			<View style={styles.post}>
@@ -12,7 +19,7 @@ export const Post = ({title, imageUrl, price}: any) => {
 					}}
 				/>
 				<View style={styles.postDetails}>
-					<Text style={styles.postTitle}>{title}</Text>
+					<Text style={styles.postTitle}>{trimTitle(title)}</Text>
 					<Text style={styles.postDate}>{price}</Text>
 				</View>
 			</View>
